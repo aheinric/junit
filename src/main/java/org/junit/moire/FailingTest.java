@@ -1,7 +1,5 @@
 package org.junit.moire;
 
-import org.junit.runner.notification.Failure;
-
 /**
  * An implementation of MoireResults representing a normal failing test.
  * @author alexanderheinricher

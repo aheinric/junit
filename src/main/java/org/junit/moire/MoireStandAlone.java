@@ -1,26 +1,15 @@
 package org.junit.moire;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Method;
-import java.util.Arrays;
 
-import junit.framework.Test;
-
-import org.junit.internal.JUnitSystem;
-import org.junit.internal.RealSystem;
-import org.junit.runner.Computer;
 import org.junit.runner.Description;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Request;
 import org.junit.runner.Result;
-import org.junit.runner.manipulation.Filter;
 import org.junit.runner.notification.Failure;
-import org.junit.runner.notification.RunListener;
-import org.junit.runners.model.InitializationError;
 /**
  * A static class intended to allow Moire to run tests in a separate process.
  * @author alexanderheinricher
@@ -63,7 +52,7 @@ public class MoireStandAlone {
 				//Check for error conditions; if des is not in the request, the requested test list is invalid.
 				if(des == null)
 				{
-					out.write("WTF: " + s + ": " +Moire.getDescriptions(request.getRunner()) +"\n");
+					out.write("Missing Test: " + s + ": " +Moire.getDescriptions(request.getRunner()) +"\n");
 					out.flush();
 					out.close();
 					os.close();
@@ -108,12 +97,5 @@ public class MoireStandAlone {
 			System.exit(6);
 		}
 		
-	}
-	//A method that wraps JUnitCore.
-	private static Result getResult(String[] args)
-	{
-		JUnitSystem system = new RealSystem();
-		Result result= new JUnitCore().runMain(system, args);
-		return result;
 	}
 }

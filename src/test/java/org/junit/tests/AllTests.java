@@ -55,6 +55,7 @@ import org.junit.tests.manipulation.FilterTest;
 import org.junit.tests.manipulation.FilterableTest;
 import org.junit.tests.manipulation.SingleMethodTest;
 import org.junit.tests.manipulation.SortableTest;
+import org.junit.tests.moire.MoireTest;
 import org.junit.tests.running.classes.BlockJUnit4ClassRunnerTest;
 import org.junit.tests.running.classes.EnclosedTest;
 import org.junit.tests.running.classes.IgnoreClassTest;
@@ -158,7 +159,8 @@ import org.junit.tests.validation.ValidationTest;
 	BlockJUnit4ClassRunnerOverrideTest.class,
 	RuleFieldValidatorTest.class,
 	RuleChainTest.class,
-	BlockJUnit4ClassRunnerTest.class
+	BlockJUnit4ClassRunnerTest.class,
+	MoireTest.class
 })
 public class AllTests {
 	public static Test suite() {

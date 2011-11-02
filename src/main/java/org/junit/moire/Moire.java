@@ -1,28 +1,20 @@
 package org.junit.moire;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Collection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 import org.junit.runner.Description;
-import org.junit.runner.JUnitCore;
 import org.junit.runner.Request;
-import org.junit.runner.Result;
 import org.junit.runner.Runner;
-import org.junit.runner.manipulation.Filter;
-import org.junit.runner.notification.Failure;
 
 /**
  * Test utility designed to detect and isolate test that fail due to interference from other tests.
@@ -168,7 +160,7 @@ public class Moire {
 	 * runner.sortWith(reverseOrder(runner)) to return a reversed version
 	 * of runner.
 	 * 
-	 * @param runner:  The runner to be reversed
+	 * @param runner  The runner to be reversed
 	 * @return A comparator that enforces a reverse ordering of runner.
 	 */
 	public static Comparator<Description> reverseOrder(Runner runner)
@@ -193,7 +185,6 @@ public class Moire {
 	private static List<String> runIsolatedTest(List<Description> params)
 	{
 		//Set up a new file
-		boolean canProceed = false;
 		File file = null;
 		int index = 0;
 		while(file == null)
@@ -202,7 +193,6 @@ public class Moire {
 			try {
 				file = File.createTempFile(FILENAME, "_" + index);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
